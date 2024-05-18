@@ -10,7 +10,6 @@ public class DynamicTokenGeneratorGUI {
 
     private JFrame frame;
     private JLabel tokenLabel;
-    private Timer timer;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -40,7 +39,7 @@ public class DynamicTokenGeneratorGUI {
     }
 
     private void startTokenGeneration() {
-        timer = new Timer();
+        Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
