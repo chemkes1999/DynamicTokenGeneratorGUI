@@ -5,8 +5,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.time.Instant;
 
 public class DynamicTokenGeneratorGUI {
+
+    private static final String SECRET_KEY = "YourSecretKey";  // Hacer la clave configurable
+    private static final long TOKEN_INTERVAL_MS = 5000;  // Intervalo de generación de tokens
 
     private JFrame frame;
     private JLabel tokenLabel;
@@ -34,7 +38,7 @@ public class DynamicTokenGeneratorGUI {
         frame.getContentPane().setLayout(new BorderLayout(0, 0));
 
         tokenLabel = new JLabel("Token will appear here", SwingConstants.CENTER);
-        tokenLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        tokenLabel.setFont(new Font("Serif", Font.BOLD, 16));  // Mejorar la apariencia del texto
         frame.getContentPane().add(tokenLabel, BorderLayout.CENTER);
     }
 
@@ -43,26 +47,26 @@ public class DynamicTokenGeneratorGUI {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                String token = generateToken();
+                String token = TokenGenerator.generateToken(SECRET_KEY);
                 SwingUtilities.invokeLater(() -> tokenLabel.setText(token));
             }
-        }, 0, 5000);
+        }, 0, TOKEN_INTERVAL_MS);
     }
 
-    private String generateToken() {
-        long currentTimeMillis = System.currentTimeMillis();
-        String rawData = "YourSecretKey" + currentTimeMillis / 5000;
-        System.out.println(rawData);
+    static class TokenGenerator {
+        public static String generateToken(String secretKey) {
+            long currentInterval = Instant.now().getEpochSecond() / (TOKEN_INTERVAL_MS / 1000);
+            String rawData = secretKey + currentInterval;
+            System.out.println(rawData);
 
-        try {
-            // Crear el hash SHA-256 del rawData
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(rawData.getBytes());
-            // Codificar en Base64 para que sea más legible
-            return Base64.getEncoder().encodeToString(hash);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
+            try {
+                MessageDigest digest = MessageDigest.getInstance("SHA-256");
+                byte[] hash = digest.digest(rawData.getBytes());
+                return Base64.getEncoder().encodeToString(hash);
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+                return "Error generating token";
+            }
         }
     }
 }
