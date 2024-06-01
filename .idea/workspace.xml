@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffbc03c1-49c0-4e90-aa9f-a948305d5dca" name="Changes" comment="fix">
+    <list default="true" id="ffbc03c1-49c0-4e90-aa9f-a948305d5dca" name="Changes" comment="mejoras al proyecto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DynamicTokenGeneratorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicTokenGeneratorGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716057342897</updated>
       <workItem from="1716057343975" duration="940000" />
-      <workItem from="1716650501343" duration="84000" />
+      <workItem from="1716650501343" duration="1451000" />
     </task>
     <task id="LOCAL-00001" summary="inicial">
       <option name="closed" value="true" />
@@ -121,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716058274363</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="mejoras al proyecto">
+      <option name="closed" value="true" />
+      <created>1716650700475</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716650700475</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +138,7 @@
     <MESSAGE value="inicial" />
     <MESSAGE value="build" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="mejoras al proyecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejoras al proyecto" />
   </component>
 </project>
